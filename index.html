@@ -5,6 +5,12 @@
 <script src="AR.js/aframe/build/aframe-ar.js"></script>
 <!-- Register an aframe component that allows reacting to marker events -->
 <script>
+    let flipBtn = document.querySelector('#flip-btn');
+
+    // default user media options
+    let defaultsOpts = { audio: false, video: true }
+    let shouldFaceUser = true;
+
     function clearCanvas(canvas) {
         const ctx = canvas.getContext('2d');
         ctx.save();
@@ -50,12 +56,19 @@
 </script>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
-    <div style='position: fixed; top: 10px; left: 5px; text-align: center; z-index: 1;'>
-        <!-- <a href="https://github.com/AR-js-org/AR.js/" target="_blank">AR.js</a> - marker events example for a-frame - look at the js console -->
-        <!-- <br/> -->
-        <!-- Contact me any time at <a href='https://twitter.com/nicolocarp' target='_blank'>@nicolocarp</a> -->
+    <!-- <div style='position: fixed; top: 10px; left: 5px; text-align: center; z-index: 1;'> -->
+    <!-- <a href="https://github.com/AR-js-org/AR.js/" target="_blank">AR.js</a> - marker events example for a-frame - look at the js console -->
+    <!-- <br/> -->
+    <!-- Contact me any time at <a href='https://twitter.com/nicolocarp' target='_blank'>@nicolocarp</a> -->
     </div>
-    <canvas id='marker-hiro'>
+    <canvas id='marker-hiro' style="
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 800px;">
+
         <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'
             renderer='precision: medium;'>
             <!-- handle hiro marker -->
